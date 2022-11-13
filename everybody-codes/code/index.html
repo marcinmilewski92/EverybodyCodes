@@ -2,12 +2,21 @@
 <html>
 
 <head>
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-  <meta charset="utf-8">
-  <title>Infi | Security cameras Utrecht</title>
-  <!-- Video camera Icon by Martz90 available at http://www.iconarchive.com/show/circle-icons-by-martz90/video-camera-icon.html under a Creative Commons Attribution-Noncommercial-No Derivate 4.0. Full terms at http://creativecommons.org/licenses/by-nc-nd/4.0 -->
-  <link rel="icon" type="image/x-icon" href="video-camera-icon.png">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Infi | Security cameras Utrecht</title>
+    <!-- Video camera Icon by Martz90 available at http://www.iconarchive.com/show/circle-icons-by-martz90/video-camera-icon.html under a Creative Commons Attribution-Noncommercial-No Derivate 4.0. Full terms at http://creativecommons.org/licenses/by-nc-nd/4.0 -->
+    <link rel="icon" type="image/x-icon" href="video-camera-icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="apiConsumer.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+     integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+     crossorigin=""/>
+      <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+ integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+ crossorigin=""></script>
   <style type="text/css">
     html, body {
       margin: 0;
@@ -109,6 +118,7 @@
 <body>
   <h1>Security cameras Utrecht</h1>
   <div id="map"></div>
+  <script type="text/javascript" src="map.js"></script>
   <div id="source">
     source:
     <a href="https://data.overheid.nl/dataset/camera-s">https://data.overheid.nl/dataset/camera-s</a>
@@ -130,7 +140,7 @@
                   <th>Longitude</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="cam3">
               </tbody>
             </table>
           </td>
@@ -147,7 +157,7 @@
                   <th>Longitude</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="cam5">
               </tbody>
             </table>
           </td>
@@ -164,7 +174,7 @@
                   <th>Longitude</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="cam35">
               </tbody>
             </table>
           </td>
@@ -181,7 +191,7 @@
                   <th>Longitude</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="camOther">
               </tbody>
             </table>
           </td>
