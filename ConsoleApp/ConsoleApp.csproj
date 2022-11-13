@@ -9,6 +9,7 @@
 	  <PackageOutputPath>./nupkg</PackageOutputPath>
   </PropertyGroup>
 
+
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Services\Services.csproj" />

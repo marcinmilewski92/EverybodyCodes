@@ -7,6 +7,10 @@ namespace Services
     {
         public List<Camera> GetCamerasByString(List<Camera> cameras, string name)
         {
+            if(cameras == null)
+            {
+                return null!;
+            }
             return cameras.FindAll(c => c.Name.Contains(name));
         }
     }

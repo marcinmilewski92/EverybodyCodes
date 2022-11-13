@@ -18,7 +18,7 @@ $(document).ready(function () {
 
             
             response.forEach(element => {
-                var marker = L.marker([element.latitude, element.longitude]).addTo(map).bindPopup(element.name).openPopup();
+                L.marker([element.latitude, element.longitude]).addTo(map).bindPopup(element.name);
             });
         }
         })

@@ -1,11 +1,13 @@
 ﻿using everybody_codes.Contracts;
 using Domain;
+using System.Reflection;
 
 namespace Services
 {
     public class CameraDataReader : ICameraDataReader
     {
         private readonly string path = @"C:\Users\Marcin\Desktop\Project\EverybodyCodes\everybody-codes\data\cameras-defb.csv";
+        private readonly string signature = "UTR-CM-";
         public List<Camera> GetAllCameras()
         {
             var cameras = new List<Camera>();
@@ -13,7 +15,7 @@ namespace Services
 
             if(!File.Exists(path))
             {
-                return null!;
+                return null!; 
             }
 
             lines = File.ReadAllLines(path).ToList();
@@ -21,15 +23,15 @@ namespace Services
 
             foreach(string line in lines)
             {
-                if(line.ToUpper().Contains("ERROR"))
+                if(line.ToUpper().Contains("ERROR") || !line.Contains(';'))
                 {
                     continue;
                 }
 
                 string[] cameraFields = line.Split(';');
 
-                int id;
-                if(!int.TryParse(cameraFields[0].Substring(7, 3), out id)) {
+                
+                if(!int.TryParse(cameraFields[0].AsSpan(signature.Length, 3), out int id)) {
                     id = 0;
                 }
 

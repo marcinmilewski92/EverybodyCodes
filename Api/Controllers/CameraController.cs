@@ -1,6 +1,7 @@
 ﻿using Domain;
 using everybody_codes.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -19,9 +20,17 @@ namespace Api.Controllers
 
         // GET: api/<CameraController>
         [HttpGet]
-        public IEnumerable<Camera> Get()
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public ActionResult<IEnumerable<Camera>> Cameras()
         {
-            return _cameraDataReader.GetAllCameras();
+            var cameras = _cameraDataReader.GetAllCameras();
+            if (cameras == null) { 
+
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+            return Ok(cameras);
         }
 
     }
